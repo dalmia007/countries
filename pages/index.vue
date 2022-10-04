@@ -24,6 +24,9 @@ export default {
       World,
       selectedLocation: null,
       locationDisplay: '',
+      isLoading: false,
+      isError: false,
+      countryInfo: null,
     }
   },
   head() {
@@ -33,9 +36,20 @@ export default {
   },
   methods: {
     getInfo() {
+      this.isLoading = true
       this.World.locations.forEach((item) => {
         if (item.id === this.selectedLocation) {
-          return (this.locationDisplay = item.name)
+          this.$axios
+            .get(`https://restcountries.com/v3.1/name/${item.name}`)
+            .then((res) => {
+              if (res.status === 200) {
+                console.log(res.data)
+              } else {
+                this.error = true
+              }
+            })
+            .catch((e) => console.log(e))
+            .finally(() => (this.isLoading = false))
         }
         return null
       })
