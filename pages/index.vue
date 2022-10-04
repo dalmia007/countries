@@ -6,7 +6,6 @@
       class="p-2 md:p-4 lg:p-10 bg-blue-200 flex justify-center items-center min-h-screen w-full"
       @click.prevent="getInfo()"
     />
-    {{ locationDisplay }}
   </div>
 </template>
 
@@ -23,7 +22,6 @@ export default {
     return {
       World,
       selectedLocation: null,
-      locationDisplay: '',
       isLoading: false,
       isError: false,
       countryInfo: null,
@@ -37,13 +35,15 @@ export default {
   methods: {
     getInfo() {
       this.isLoading = true
+      this.countryInfo = null
       this.World.locations.forEach((item) => {
         if (item.id === this.selectedLocation) {
           this.$axios
             .get(`https://restcountries.com/v3.1/name/${item.name}`)
             .then((res) => {
               if (res.status === 200) {
-                console.log(res.data)
+                this.countryInfo = res.data
+                console.log(this.countryInfo)
               } else {
                 this.error = true
               }
