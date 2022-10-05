@@ -1,60 +1,53 @@
 <template>
-  <div>
-    <div v-if="countryData">
-      <div>
-        <h3 class="text-lg font-medium text-center text-gray-900">
-          {{ countryData.name.official }}
-        </h3>
-        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-          <div
-            class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-          >
-            <dt class="truncate text-sm font-medium text-gray-500">Capital</dt>
-            <dd
-              class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-            >
+  <div class="h-screen flex">
+    <div
+      v-if="countryData"
+      class="bg-[#FAF9F6] shadow sm:rounded-lg w-full lg:w-1/2 m-auto"
+    >
+      <div class="px-4 py-5 sm:px-6 bg-black">
+        <div class="flex">
+          <n-link to="/">
+            <client-only>
+              <unicon name="arrow-left" fill="white"></unicon>
+            </client-only>
+          </n-link>
+          <h3 class="text-lg font-medium leading-6 text-white align-text-top">
+            {{ countryData.name.official }}
+          </h3>
+        </div>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          {{ countryData.region }}
+        </p>
+      </div>
+      <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+        <dl class="sm:divide-y sm:divide-gray-200">
+          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+            <dt class="font-medium text-black">Capital</dt>
+            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
               {{ countryData.capital[0] }}
             </dd>
           </div>
-          <div
-            class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-          >
-            <dt class="truncate text-sm font-medium text-gray-500">Currency</dt>
-            <dd
-              class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-            >
-              {{ getCurrency }}
-            </dd>
-          </div>
-          <div
-            class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-          >
-            <dt class="truncate text-sm font-medium text-gray-500">Language</dt>
-            <dd
-              class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-            >
-              {{ getLanguage }}
-            </dd>
-          </div>
-          <div
-            class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-          >
-            <dt class="truncate text-sm font-medium text-gray-500">
-              Population
-            </dt>
-            <dd
-              class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-            >
+          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+            <dt class="font-medium text-black">Population</dt>
+            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
               {{ countryData.population }}
             </dd>
           </div>
-          <div
-            class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-          >
-            <dt class="truncate text-sm font-medium text-gray-500">Flag</dt>
-            <dd
-              class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"
-            >
+          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+            <dt class="font-medium text-black">Currency</dt>
+            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+              {{ getCurrency }}
+            </dd>
+          </div>
+          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+            <dt class="font-medium text-black">Languages</dt>
+            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+              {{ getLanguages }}
+            </dd>
+          </div>
+          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+            <dt class="font-medium text-black mb-2">Flag</dt>
+            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
               <img
                 class="object-cover shadow-lg"
                 :src="countryData.flags.png"
@@ -65,7 +58,12 @@
         </dl>
       </div>
     </div>
-    <div v-if="countryData == null">error</div>
+
+    <div v-if="countryData == null" class="flex h-full w-full">
+      <p class="m-auto">
+        There was an error fetching data for this country. Please try again
+      </p>
+    </div>
   </div>
 </template>
 
@@ -81,9 +79,10 @@ export default {
       const currency = list[Object.keys(list)[0]].name
       return currency
     },
-    getLanguage() {
+    getLanguages() {
       const list = this.countryData.languages
-      return list[Object.keys(list)[0]]
+      const listArray = Object.values(list)
+      return listArray.toString()
     },
   },
 }
