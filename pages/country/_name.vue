@@ -2,19 +2,11 @@
   <div>
     <div
       v-if="isLoading"
-      class="bg-white h-screen text-3xl pt-48 text-center mx-auto w-full;"
+      class="bg-white flex justify-center items-center m-auto h-screen"
     >
-      <!-- <p>Loading...</p> -->
-      <span class="flex h-3 w-3">
-        <span
-          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"
-        ></span>
-        <span
-          class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"
-        ></span>
-      </span>
+      <SimpleSpinner />
     </div>
-    <div v-if="data">
+    <div v-if="data && !isLoading">
       <div>
         <h3 class="text-lg font-medium text-center text-gray-900">
           {{ data.name.official }}
@@ -83,8 +75,12 @@
 </template>
 
 <script>
+import SimpleSpinner from '~/components/SimpleSpinner.vue'
 export default {
   name: 'CountryInfo',
+  components: {
+    SimpleSpinner,
+  },
   data() {
     return {
       data: null,
