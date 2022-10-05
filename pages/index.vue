@@ -15,6 +15,7 @@ import World from '@svg-maps/world'
 
 export default {
   name: 'IndexPage',
+
   components: {
     RadioSvgMap,
   },

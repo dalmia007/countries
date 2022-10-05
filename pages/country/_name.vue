@@ -19,13 +19,17 @@ export default {
       isLoading: false,
     }
   },
+  head() {
+    return {
+      title: `${this.$route.params.name}`,
+    }
+  },
   created() {
     this.isLoading = true
     this.$axios
       .get(`https://restcountries.com/v3.1/name/${this.$route.params.name}`)
       .then((res) => {
         this.data = res.data[0]
-        console.log(this.data)
       })
       .catch((e) => console.error(e))
       .finally(() => (this.isLoading = false))
