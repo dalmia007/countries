@@ -6,11 +6,11 @@
     >
       <div class="px-4 py-5 sm:px-6 bg-black">
         <div class="flex">
-          <n-link to="/">
+          <a href="/">
             <client-only>
               <unicon name="arrow-left" fill="white"></unicon>
             </client-only>
-          </n-link>
+          </a>
           <h3 class="text-lg font-medium leading-6 text-white align-text-top">
             {{ countryData.name.official }}
           </h3>
