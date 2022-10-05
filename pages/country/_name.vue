@@ -22,6 +22,13 @@ export default {
   head() {
     return {
       title: `${this.$route.params.name}`,
+      meta: [
+        {
+          name: 'viewport',
+          content:
+            'initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi',
+        },
+      ],
     }
   },
   mounted() {
