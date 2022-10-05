@@ -59,9 +59,23 @@
       </div>
     </div>
 
-    <div v-if="countryData == null" class="flex h-full w-full">
+    <div
+      v-if="countryData == null"
+      class="flex h-full w-full m-auto p-5 text-center"
+    >
       <p class="m-auto">
-        There was an error fetching data for this country. Please try again
+        There was an error fetching data for this country. Go back and try
+        again!
+        <br />
+        <a href="/countries">
+          <client-only>
+            <unicon
+              name="arrow-left"
+              fill="black"
+              class="scale-[150%] mt-10"
+            ></unicon>
+          </client-only>
+        </a>
       </p>
     </div>
   </div>
