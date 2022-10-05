@@ -6,7 +6,7 @@
     >
       <div class="px-4 py-5 sm:px-6 bg-black">
         <div class="flex">
-          <a href="/">
+          <a href="/countries">
             <client-only>
               <unicon name="arrow-left" fill="white"></unicon>
             </client-only>
