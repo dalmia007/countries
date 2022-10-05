@@ -11,14 +11,8 @@
 </template>
 
 <script>
-import CountryInfo from '~/components/CountryInfo.vue'
-import SimpleSpinner from '~/components/SimpleSpinner.vue'
 export default {
   name: 'CountryInfoPage',
-  components: {
-    SimpleSpinner,
-    CountryInfo,
-  },
   data() {
     return {
       data: null,
