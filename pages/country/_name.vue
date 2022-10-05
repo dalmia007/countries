@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="transform scale-100">
     <div
       v-if="isLoading"
       class="bg-white flex justify-center items-center m-auto h-screen"
@@ -24,7 +24,7 @@ export default {
       title: `${this.$route.params.name}`,
     }
   },
-  created() {
+  mounted() {
     this.isLoading = true
     this.$axios
       .get(`https://restcountries.com/v3.1/name/${this.$route.params.name}`)
