@@ -2,7 +2,7 @@
   <div class="h-screen flex">
     <div
       v-if="countryData"
-      class="bg-[#FAF9F6] shadow sm:rounded-lg w-full lg:w-1/2 m-auto"
+      class="bg-[#FAF9F6] shadow sm:rounded-lg w-full lg:w-1/2 sm:mt-0 sm:mx-auto md:m-auto"
     >
       <div class="px-4 py-5 sm:px-6 bg-black">
         <div class="flex">
