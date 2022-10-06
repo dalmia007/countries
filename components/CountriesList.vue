@@ -3,6 +3,7 @@
     <div class="sticky top-0 shadow-sm z-10">
       <input
         v-model="searchQuery"
+        v-eager
         type="text"
         class="block w-full bg-black px-6 sm:text-sm h-20 text-white placeholder-white focus:outline-none focus:border-transparent"
         placeholder="Search for a country here..."
