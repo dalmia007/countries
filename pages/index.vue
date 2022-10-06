@@ -7,9 +7,17 @@
       @click.prevent="getInfo()"
     />
     <CountriesList class="block lg:hidden" :list="countriesList" />
+    <CountryInfoModal
+      v-if="isModalVisible"
+      :is-error="isError"
+      :is-loading="isLoading"
+      class="hidden lg:flex"
+      :country-data="data"
+      @close="closeModal"
+    />
     <SimpleSpinner
-      v-if="!countriesList"
-      class="bg-white flex justify-center items-center m-auto h-screen lg:hidden"
+      v-if="!countriesList || isLoading"
+      class="flex justify-center items-center m-auto h-screen lg:hidden"
     />
   </div>
 </template>
@@ -28,8 +36,11 @@ export default {
     return {
       World,
       selectedLocation: null,
+      data: null,
       flags: [],
       isLoading: false,
+      isModalVisible: false,
+      isError: false,
     }
   },
   head() {
@@ -51,12 +62,29 @@ export default {
   },
   methods: {
     getInfo() {
+      this.isModalVisible = true
+      this.isLoading = true
+      this.isError = false
       this.World.locations.forEach((item) => {
         if (item.id === this.selectedLocation) {
-          this.$router.push(`country/${item.name}`)
+          this.$axios
+            .get(`https://restcountries.com/v3.1/name/${item.name}`)
+            .then((res) => {
+              this.data = res.data[0]
+            })
+            .catch((e) => {
+              console.error(e)
+              this.isError = true
+            })
+            .finally(() => (this.isLoading = false))
         }
         return null
       })
+    },
+    closeModal() {
+      this.isModalVisible = false
+      this.selectedLocation = null
+      this.data = null
     },
   },
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
     <dt class="font-semibold text-black">{{ title }}</dt>
-    <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
+    <dd class="mt-1 text-black font-light sm:mt-0">
       {{ detail }}
       <slot></slot>
     </dd>
