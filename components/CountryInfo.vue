@@ -49,7 +49,7 @@
         There was an error fetching data for this country. Go back and try
         again!
         <br />
-        <a href="/countries">
+        <n-link to="/">
           <client-only>
             <unicon
               name="arrow-left"
@@ -57,7 +57,7 @@
               class="scale-[150%] mt-10"
             ></unicon>
           </client-only>
-        </a>
+        </n-link>
       </p>
     </div>
   </div>
