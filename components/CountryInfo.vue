@@ -14,11 +14,11 @@
           </p>
         </div>
         <div>
-          <a href="/countries">
+          <n-link to="/">
             <client-only>
               <unicon name="times" fill="white" class="scale-150"></unicon>
             </client-only>
-          </a>
+          </n-link>
         </div>
       </div>
       <div class="border-t border-gray-200 px-4 py-5 sm:p-0">

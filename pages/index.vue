@@ -3,8 +3,13 @@
     <radio-svg-map
       v-model="selectedLocation"
       :map="World"
-      class="flex justify-center items-center max-h-screen w-full scale-[85%]"
+      class="hidden justify-center items-center max-h-screen w-full scale-[85%] lg:flex"
       @click.prevent="getInfo()"
+    />
+    <CountriesList class="block lg:hidden" :list="countriesList" />
+    <SimpleSpinner
+      v-if="!countriesList"
+      class="bg-white flex justify-center items-center m-auto h-screen lg:hidden"
     />
   </div>
 </template>
@@ -23,6 +28,8 @@ export default {
     return {
       World,
       selectedLocation: null,
+      flags: [],
+      isLoading: false,
     }
   },
   head() {
@@ -35,6 +42,18 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    countriesList() {
+      return this.$store.state.countries
+    },
+  },
+  created() {
+    this.isLoading = true
+    if (this.$store.state.countries === null) {
+      this.$store.dispatch('fetchCountries')
+    }
+    this.isLoading = false
   },
   methods: {
     getInfo() {
