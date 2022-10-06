@@ -6,11 +6,9 @@
     >
       <div class="px-4 py-5 sm:px-6 bg-black flex justify-between items-center">
         <div>
-          <div>
-            <h3 class="text-lg font-medium leading-6 text-white align-text-top">
-              {{ countryData.name.official }}
-            </h3>
-          </div>
+          <h3 class="text-lg font-medium leading-6 text-white align-text-top">
+            {{ countryData.name.official }}
+          </h3>
           <p class="mt-1 max-w-2xl text-sm text-[#9FA0A5]">
             {{ countryData.region }}
           </p>
@@ -24,45 +22,25 @@
         </div>
       </div>
       <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-        <dl class="sm:divide-y sm:divide-gray-200">
-          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-semibold text-black">Capital</dt>
-            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
-              {{ countryData.capital[0] }}
-            </dd>
-          </div>
-          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-semibold text-black">Population</dt>
-            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
-              {{ countryData.population }}
-            </dd>
-          </div>
-          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-semibold text-black">Currency</dt>
-            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
-              {{ getCurrency }}
-            </dd>
-          </div>
-          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-semibold text-black">Languages</dt>
-            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
-              {{ getLanguages }}
-            </dd>
-          </div>
-          <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-semibold text-black mb-2">Flag</dt>
-            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
-              <img
-                class="shadow-2xl scale-[40%] origin-top-left"
-                :src="countryData.flags.png"
-                alt="Flag"
-              />
-            </dd>
-          </div>
+        <dl class="divide-y divide-gray-200">
+          <CountryInfoDetail title="Capital" :detail="countryData.capital[0]" />
+          <CountryInfoDetail
+            title="Population"
+            :detail="countryData.population.toString()"
+          />
+          <CountryInfoDetail title="Currency" :detail="getCurrency" />
+          <CountryInfoDetail title="Languages" :detail="getLanguages" />
+          <CountryInfoDetail title="Flag"
+            ><img
+              class="shadow-2xl scale-[40%] origin-top-left mt-2 lg:mt-0"
+              :src="countryData.flags.png"
+              alt="Flag"
+            />
+          </CountryInfoDetail>
         </dl>
       </div>
     </div>
-
+    <!-- Error State -->
     <div
       v-if="countryData == null"
       class="flex h-full w-full m-auto p-5 text-center"
