@@ -4,7 +4,7 @@ This application allows user to check country information such as the capital, p
 
 The user can retrieve the country information by selecting a country from the map (for laptops & desktops) and from a list (for mobile and tablets).
 
-The application can be accessed here http://localhost:3000/countries/
+The application can be accessed here https://dalmia007.github.io/countries/
 
 ![Screen Shot 2022-10-07 at 3 09 41 AM](https://user-images.githubusercontent.com/52538845/194423527-7138c4b8-2bd0-424d-8cc2-c6d581e5d765.png)
 ![Screen Shot 2022-10-07 at 3 10 07 AM](https://user-images.githubusercontent.com/52538845/194423570-8fe8c684-9238-4712-bc1e-7921328bf709.png)
