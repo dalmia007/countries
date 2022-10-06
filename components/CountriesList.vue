@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      searchQuery: null,
+      searchQuery: '',
     }
   },
   computed: {
