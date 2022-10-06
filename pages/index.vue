@@ -3,7 +3,7 @@
     <radio-svg-map
       v-model="selectedLocation"
       :map="World"
-      class="p-2 md:p-4 lg:p-10 bg-blue-200 flex justify-center items-center min-h-screen w-full"
+      class="flex justify-center items-center max-h-screen w-full scale-[85%]"
       @click.prevent="getInfo()"
     />
   </div>
