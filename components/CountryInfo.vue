@@ -4,20 +4,24 @@
       v-if="countryData"
       class="bg-[#FAF9F6] shadow sm:rounded-lg w-full lg:w-1/2 sm:mt-0 sm:mx-auto md:m-auto"
     >
-      <div class="px-4 py-5 sm:px-6 bg-black">
-        <div class="flex">
+      <div class="px-4 py-5 sm:px-6 bg-black flex justify-between items-center">
+        <div>
+          <div>
+            <h3 class="text-lg font-medium leading-6 text-white align-text-top">
+              {{ countryData.name.official }}
+            </h3>
+          </div>
+          <p class="mt-1 max-w-2xl text-sm text-[#9FA0A5]">
+            {{ countryData.region }}
+          </p>
+        </div>
+        <div>
           <a href="/countries">
             <client-only>
-              <unicon name="arrow-left" fill="white"></unicon>
+              <unicon name="times" fill="white" class="scale-150"></unicon>
             </client-only>
           </a>
-          <h3 class="text-lg font-medium leading-6 text-white align-text-top">
-            {{ countryData.name.official }}
-          </h3>
         </div>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-          {{ countryData.region }}
-        </p>
       </div>
       <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
         <dl class="sm:divide-y sm:divide-gray-200">
