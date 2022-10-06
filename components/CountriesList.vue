@@ -6,6 +6,7 @@
         type="text"
         class="block w-full bg-black px-6 sm:text-sm h-20 text-white placeholder-white focus:outline-none focus:border-transparent"
         placeholder="Search for a country here..."
+        @input="searchQuery = $event.target.value"
       />
       <div
         class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
