@@ -97,7 +97,7 @@ export default {
       if (this.countryData.languages) {
         const list = this.countryData.languages
         const listArray = Object.values(list)
-        return listArray.toString()
+        return listArray.slice(0, 5).toString()
       } else {
         return 'None Specified'
       }
