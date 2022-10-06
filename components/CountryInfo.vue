@@ -26,34 +26,34 @@
       <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
         <dl class="sm:divide-y sm:divide-gray-200">
           <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-medium text-black">Capital</dt>
-            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+            <dt class="font-semibold text-black">Capital</dt>
+            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
               {{ countryData.capital[0] }}
             </dd>
           </div>
           <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-medium text-black">Population</dt>
-            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+            <dt class="font-semibold text-black">Population</dt>
+            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
               {{ countryData.population }}
             </dd>
           </div>
           <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-medium text-black">Currency</dt>
-            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+            <dt class="font-semibold text-black">Currency</dt>
+            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
               {{ getCurrency }}
             </dd>
           </div>
           <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-medium text-black">Languages</dt>
-            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+            <dt class="font-semibold text-black">Languages</dt>
+            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
               {{ getLanguages }}
             </dd>
           </div>
           <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-            <dt class="font-medium text-black mb-2">Flag</dt>
-            <dd class="mt-1 text-black font-bold sm:col-span-2 sm:mt-0">
+            <dt class="font-semibold text-black mb-2">Flag</dt>
+            <dd class="mt-1 text-black font-light sm:col-span-2 sm:mt-0">
               <img
-                class="object-cover shadow-lg"
+                class="shadow-2xl scale-[40%] origin-top-left"
                 :src="countryData.flags.png"
                 alt="Flag"
               />
