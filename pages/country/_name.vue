@@ -29,7 +29,9 @@ export default {
     this.$axios
       .get(`https://restcountries.com/v3.1/name/${this.$route.params.name}`)
       .then((res) => {
-        this.data = res.data[0]
+        this.$route.params.name === 'China'
+          ? (this.data = res.data[1])
+          : (this.data = res.data[0])
       })
       .catch((e) => console.error(e))
       .finally(() => (this.isLoading = false))

@@ -70,7 +70,9 @@ export default {
           this.$axios
             .get(`https://restcountries.com/v3.1/name/${item.name}`)
             .then((res) => {
-              this.data = res.data[0]
+              item.name === 'China'
+                ? (this.data = res.data[1])
+                : (this.data = res.data[0])
             })
             .catch((e) => {
               console.error(e)
