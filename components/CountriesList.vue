@@ -4,7 +4,7 @@
       <input
         v-model="searchQuery"
         type="text"
-        class="block w-full bg-black pr-10 sm:text-sm h-20 text-white placeholder-white pl-10"
+        class="block w-full bg-black pr-10 sm:text-sm h-20 text-white placeholder-white pl-10 focus:outline-none focus:border-transparent"
         placeholder="Search for a country here..."
       />
       <div
