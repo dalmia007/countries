@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex w-full lg:w-1/4">
+  <div class="h-screen flex w-full lg:w-1/4" @click.stop="">
     <div
       v-if="countryData"
       class="bg-[#FAF9F6] shadow sm:rounded-lg w-full sm:mt-0 sm:mx-auto md:m-auto"
