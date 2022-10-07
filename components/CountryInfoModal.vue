@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-[#0000004d] flex items-center justify-center fixed inset-0">
+  <div
+    class="bg-[#0000004d] flex items-center justify-center fixed inset-0"
+    @click.prevent="close"
+  >
     <CountryInfo
       v-if="countryData && !isLoading"
       :country-data="countryData"
